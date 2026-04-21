@@ -1,0 +1,129 @@
+.skills__filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.skills__filter {
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.skills__filter:hover {
+  color: var(--text-primary);
+  border-color: var(--border-accent);
+}
+
+.skills__filter--active {
+  color: white;
+  background: var(--gradient-primary);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.skills__grid.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills__card {
+  padding: 20px 24px;
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.skills__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.skills__icon {
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.skills__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.skills__level-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-accent);
+}
+
+.skills__bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.skills__bar-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skills__bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@media (max-width: 768px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills__filters {
+    gap: 6px;
+  }
+
+  .skills__filter {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+}

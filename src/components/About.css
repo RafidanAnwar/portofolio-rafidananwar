@@ -1,0 +1,132 @@
+.about__content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.about__content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about__info {
+  margin-bottom: 48px;
+}
+
+.about__bio {
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.about__bio p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.about__location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.about__stat {
+  text-align: center;
+  padding: 28px 20px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.about__stat:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.about__stat-value {
+  display: block;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.about__stat-label {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.about__highlight-card {
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.about__highlight-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.about__highlight-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.about__highlight-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .about__stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .about__highlights {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about__bio {
+    padding: 24px;
+  }
+
+  .about__stat {
+    padding: 20px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__stats {
+    grid-template-columns: 1fr;
+  }
+}
