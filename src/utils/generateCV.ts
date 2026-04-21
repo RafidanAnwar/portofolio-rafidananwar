@@ -26,7 +26,7 @@ export const generateCV = () => {
     return lines.length * (fontSize * 0.45); // approximate height added
   };
 
-  const addHeading = (text: string, y: number) => {
+  const addHeading = (text: string) => {
     currentY += 8;
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(13);
@@ -69,12 +69,12 @@ export const generateCV = () => {
   currentY += 8;
 
   // ----- SUMMARY -----
-  addHeading('Professional Summary', currentY);
+  addHeading('Professional Summary');
   currentY += addWrappedText(personalInfo.bio, marginLeft, currentY, contentWidth, 10, 'normal', '#333333');
   currentY += 4;
 
   // ----- SKILLS -----
-  addHeading('Skills', currentY);
+  addHeading('Skills');
   const frontendSkills = skills.filter((s) => s.category === 'frontend').map((s) => s.name).join(', ');
   const backendSkills = skills.filter((s) => s.category === 'backend').map((s) => s.name).join(', ');
   const toolsSkills = skills.filter((s) => s.category === 'tools').map((s) => s.name).join(', ');
@@ -87,7 +87,7 @@ export const generateCV = () => {
   currentY += 4;
 
   // ----- WORK EXPERIENCE -----
-  addHeading('Experience', currentY);
+  addHeading('Experience');
   experience.forEach((exp) => {
     // Role and Company
     doc.setFont('helvetica', 'bold');
@@ -118,7 +118,7 @@ export const generateCV = () => {
     }
   };
 
-  addHeading('Projects', currentY);
+  addHeading('Projects');
   projects.filter(p => p.featured).forEach((project) => {
     checkPageBreak(25); // Check if enough space
 
@@ -143,7 +143,7 @@ export const generateCV = () => {
 
   // ----- EDUCATION -----
   checkPageBreak(30);
-  addHeading('Education', currentY);
+  addHeading('Education');
   education.forEach((edu) => {
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(11);

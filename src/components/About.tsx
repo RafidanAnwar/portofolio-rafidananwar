@@ -62,7 +62,13 @@ export default function About() {
   );
 }
 
-function StatCard({ stat, delay }: { stat: typeof stats[0]; delay: number }) {
+interface StatItem {
+  label: string;
+  value: number;
+  suffix: string;
+}
+
+function StatCard({ stat, delay }: { stat: StatItem; delay: number }) {
   const { count, ref } = useCounter(stat.value, 1500);
   return (
     <div ref={ref} className={`about__stat animate-delay-${delay + 1}`}>
